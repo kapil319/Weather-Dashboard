@@ -25,7 +25,7 @@ function renderSearchHistory() {
 }
 
 function appendSearchHistory(){
-    if(searchHistory.indexOf(search) ! == -1) {
+    if(searchHistory.indexOf(search) !== -1) {
         return
         }
 
@@ -57,7 +57,7 @@ function renderCurrentWeather(city, weatherData) {
 
     card.attr("class", "card");
 
-    cardBody.attr("class", 'card-body");
+    cardBody.attr("class", "card-body");
 
     card.append(cardBody);
 
@@ -89,7 +89,7 @@ function fetchWeather(location) {
     // let queryWeatherURL = `${weatherAPIURL}/data/2.5/forecast?lat=${lattitude}&lon=${longitude}&units=metric&appid=${weatherAPIKey}
 
     $.ajax({
-    url: queryWeatherURL
+    url: queryWeatherURL,
     method: "GET"
     }).then(function(response){
         render.CurrentWeather(city, response.list[0]);
@@ -114,8 +114,9 @@ function fetchCoord(search) {
                     fetchWeather(response[0])
 
                     } 
-                }   
-    })
+                })  
+
+}
   
 
 function initialiseSearchHistory(){
